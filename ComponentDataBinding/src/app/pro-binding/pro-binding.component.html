@@ -1,0 +1,25 @@
+<p>
+  PROPERTY BINDING
+</p>
+<!--  3 ways to define a property binding in Angular
+1.We can use interpolation to define the value,
+as long as the value you're defining is a string.
+2.The most common method to define property binding
+is by wrapping brackets around an element property 
+and binding it to a component property. 
+3.Adding bind- before the element property also achieves 
+the same thing.-->
+<!-- 1st way -->
+<img src="{{my_image}}" width="250" height="250">
+<!-- 2nd way -->
+<img [src]="my_img" width="250" height="250">
+<!-- 3rd way -->
+<img bind-src="my_pic" width="250" height="250">
+<hr>
+<button type="button" class="btn btn-primary" [disabled]="buttonStatus">My_Button</button>
+<hr>
+<button type="button" class="btn btn-primary" [disabled]="btnStatus =='enabled'">My_Btn</button>
+<!-- 
+  **Property binding allows you to define element attribute values from the component class.
+  **It is one-way data binding, as you can only set data from the component to the view.
+-->

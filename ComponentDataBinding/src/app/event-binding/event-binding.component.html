@@ -1,0 +1,23 @@
+<!-- Event Binding
+1.A click, hover, or a keyboard action are all events that 
+you can use to call component logic within Angular.
+2.It's one-way data binding, in that it sends 
+information from the view to the component class.
+3. This is opposite from property binding, where 
+data is sent from the component class to the view.
+4.we capture any event from view by wrapping the event 
+with () parenthesis.
+5.Angular provides you with a varity of events from
+which you can all component logic. -->
+
+<button type="button" class="btn btn-primary" (click)="myEvent($event)">My_Click</button>
+<hr>
+<!-- <button type="button" class="btn btn-primary" (focus)="myEvent($event)">My_Focus</button>
+<hr>
+<button type="button" class="btn btn-primary" (blur)="myEvent($event)">My_Blur</button>
+<hr>
+<button type="button" class="btn btn-primary" (mousedown)="myEvent($event)">My_MouseDown</button>
+<hr>
+<button type="button" class="btn btn-primary" (scroll)="myEvent($event)">My_Scroll</button>
+<hr> -->
+<!-- <button type="button" class="btn btn-primary" (mouseenter)="myEvent($event)">My_MouseEnter</button> -->
