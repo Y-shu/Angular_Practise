@@ -1,2 +1,31 @@
 <!-- PARENT TO CHILD COMMUNICATION -->
-<h2>{{ parent_message}}</h2>
+<h2>Custom Property Binding</h2>
+<p>{{message_fromParent}}</p>
+<!-- CHILD TO PARENT COMMUNICATION -->
+<h2>-------------------Parent to Child---------------------</h2>
+<button class="btn btn-primary" (click)="createEvent($event)">Parent2Child</button>
+<br>
+<br>
+<!-- Communication between child and parent 
+    ALSO CALLED AS " CUSTOM EVENT BINDING"
+1.childcomponent.ts:
+@Output decorator is used to maintain communication from child to 
+parent
+@Output event_name=new EventEmitter<generictype>(); 
+    eventemitter is needed to import from @angular/core
+createEvent(event){
+    this.event_name.emit({
+        name:"yashu";
+    })
+}
+**eventEmitter is used to create new event
+**emit() method is used to write logic when there event is triggered
+
+2.app.component.html:
+
+-->
+<h2>----------------Child to Parent------------------</h2>
+
+<button class="btn btn-primary"  (click)="createEvent($event)">Child2Parent</button>
+<h2>----------------Child to Parent--Object iteration----------------</h2>
+<button class="btn btn-primary" (click)="createObjEvent($event)">ObjClick</button>

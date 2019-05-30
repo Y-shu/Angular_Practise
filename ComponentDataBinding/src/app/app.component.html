@@ -2,9 +2,38 @@
 <app-pro-binding></app-pro-binding>
 <h2>Event-Binding</h2>
 <app-event-binding></app-event-binding>
-<h2>CommunicationBtnComponent</h2>
-<app-communicate></app-communicate>
-<h2>Parent to Child</h2>
-<app-child [parent_message]="message"></app-child>
+<!-- <h2>Parent to Child</h2> -->
+<app-child [message_fromParent]="message"  (click_me)="triggred_event($event)"
+(obj_click)="obj_triggred_event($event)"></app-child>
+
+
+<h5>{{data_fromchild}}</h5>
+<!-- <h2 *ngFor="let keyss of keys()">{{Keyss}}</h2> -->
+
+<p *ngFor="let key of data_Obj">{{key}}:{{data_values[key]}}</p>
+       
+<!-- <p *ngFor="let key of data_Obj">{{key.key}}:{{key.value}}</p> -->
+
+
+<!-- Communication between is of three types:
+1.Parent component to Child Component
+Also called as "Custom Property Binding"
+@Input Decorator helps to send data from parent to child
+Steps:
+App.component.ts:
+we will assign a variable with a value and this data is supposed to be
+sent to child
+app.component.html:
+<app-childCompName [customizedpropertyname]="MessagefromParent">
+</app-childCompName>
+Now Child Property is capable enough to display or do any kind of manipulation of
+data that we are getting from parent component
+child.component.ts:
+import @Input() 
+@Input() customizedpropertyName:string;
+child.component.html:
+<p>{{Custom Property Binding}}</p> -->
+
+<!-- Implementing newly created event in its specified component selector -->
 
 
