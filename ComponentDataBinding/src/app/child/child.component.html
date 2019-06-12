@@ -8,7 +8,9 @@
 <br>
 <!-- Communication between child and parent 
     ALSO CALLED AS " CUSTOM EVENT BINDING"
-1.childcomponent.ts:
+1.child.component.html:
+<button class='' (click)="createEvent($event)">ClickMe</button>
+2.childcomponent.ts:
 @Output decorator is used to maintain communication from child to 
 parent
 @Output event_name=new EventEmitter<generictype>(); 
@@ -21,7 +23,18 @@ createEvent(event){
 **eventEmitter is used to create new event
 **emit() method is used to write logic when there event is triggered
 
-2.app.component.html:
+3.app.component.html:
+Implementation in newly created event in it's specified component selector
+<app-child (eventName)="triggredEvent($event)"></app-child>
+
+4.app.component.ts:
+variable=""(to hold data)
+triggredEvent(e){
+    this.data=e.name;
+}
+
+5.app.component.html:
+<p>{{variable}}</p>
 
 -->
 <h2>----------------Child to Parent------------------</h2>

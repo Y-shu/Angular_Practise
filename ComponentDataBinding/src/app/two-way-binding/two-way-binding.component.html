@@ -1,0 +1,24 @@
+<!-- NgModel:
+ 1.Two way data binding is both combination of both property and event binding
+ 2.continuous synchronization of a data from view to component and component to view
+ 3.Two-way data binding with the help of ngModel from formsmodule library in app.module.ts-->
+
+<label>Name:</label><input type="text" [(ngModel)]="Name">
+<app-two-way-child [parent_data]="Name"></app-two-way-child>
+
+<!-- <label>Message</label><input type="text" [(ngModel)]="message"> -->
+
+<!--Local Reference:-->
+ <input type="text" #ref>
+ <button type="button" class="btn btn-primary" (click)="trig_Fun(ref)">Click</button>
+ <br>
+
+<!-- Input event :-->
+ <input type="text" (input)="dollar_event($event)">
+ <br>
+
+ <!-- template reference @ViewChild :-->
+<input type="text" #re>
+<button type="button" class="btn btn-primary" (click)="view_child($event)">Press</button>
+ 
+ 

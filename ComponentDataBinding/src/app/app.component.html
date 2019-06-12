@@ -1,16 +1,16 @@
-<h2>Property-Binding</h2>
+<!-- <h2>Property-Binding</h2>
 <app-pro-binding></app-pro-binding>
 <h2>Event-Binding</h2>
-<app-event-binding></app-event-binding>
+<app-event-binding></app-event-binding> -->
 <!-- <h2>Parent to Child</h2> -->
-<app-child [message_fromParent]="message"  (click_me)="triggred_event($event)"
-(obj_click)="obj_triggred_event($event)"></app-child>
+<!-- <app-child [message_fromParent]="message"  (click_me)="triggred_event($event)"
+(obj_click)="obj_triggred_event($event)"></app-child> -->
 
 
-<h5>{{data_fromchild}}</h5>
+<!-- <h5>{{data_fromchild}}</h5> -->
 <!-- <h2 *ngFor="let keyss of keys()">{{Keyss}}</h2> -->
 
-<p *ngFor="let key of data_Obj">{{key}}:{{data_values[key]}}</p>
+<!-- <p *ngFor="let key of data_Obj">{{key}}:{{data_values[key]}}</p> -->
        
 <!-- <p *ngFor="let key of data_Obj">{{key.key}}:{{key.value}}</p> -->
 
@@ -36,4 +36,5 @@ child.component.html:
 
 <!-- Implementing newly created event in its specified component selector -->
 
-
+<h5>Two-WayDataBinding:</h5>
+<app-two-way-binding></app-two-way-binding>
