@@ -1,0 +1,21 @@
+<!-- View Encapsulation
+1.It is a part of @Component
+
+
+****when we apply CSS for each component,this will be applicable to that particular
+component..It will not get applicable to any other components..Bcoz of 
+"ViewEncapsulation" or "Shadow DOM"
+
+In angular there is concept called "Shadow DOM"
+Shadow DOM is a part of web component(browser standards)
+It enables DOM and Style Encapsulation...
+Shadow DOM hides DOM logic behind other elements
+It enables us to apply "scoped styles(View Encapsulation)" to elements with
+out bleeding to other components
+It creates strange attribute names like if we open developer tools
+in browers we will get to know...
+-->
+<h1>Hey! this is component-viewEncapParent</h1>
+<app-a>
+</app-a>
+<app-b></app-b>
