@@ -1,0 +1,16 @@
+<!-- Interpolation
+One way of communication between Component to template -->
+<h1>
+  {{title}}
+</h1>
+<!-- Three way of writting property binding
+is from component to view/template -->
+<!-- <img src="{{img_path}}"  width="350" height="350"> -->
+<img [src]="img_path" width="350" height="350">
+<!-- <img bind-src="img_path"  width="350" height="350"> -->
+
+<!-- Event binding
+from view/template to component  -->
+<button type="button" class="btn btn-primary" (click)="display_img()">ClickMe</button>
+<img src="{{img}}">
+<!-- Access DOM event object using $event  -->
