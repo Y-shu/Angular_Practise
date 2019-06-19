@@ -6,5 +6,5 @@ import { AppModule } from './app/app.module';
 if (environment.production) {
   enableProdMode();
 }
-
+// This bootstrap module takes AppModule as input
 platformBrowserDynamic().bootstrapModule(AppModule);

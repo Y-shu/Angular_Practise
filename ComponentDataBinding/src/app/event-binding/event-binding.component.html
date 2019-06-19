@@ -2,13 +2,36 @@
 1.A click, hover, or a keyboard action are all events that 
 you can use to call component logic within Angular.
 2.It's one-way data binding, in that it sends 
-information from the view to the component class.
-3. This is opposite from property binding, where 
+information from the view(component's template) to the component's class.
+3.This is opposite from property binding, where 
 data is sent from the component class to the view.
 4.we capture any event from view by wrapping the event 
 with () parenthesis.
 5.Angular provides you with a varity of events from
 which you can all component logic.-->
 
+<!-- SYNTAX
+ you place your target event name within parenthesis on the left of an equal sign and 
+ your event handler within quotes on the right of an equal sign.
+
+can also bind an unlimited number of event handlers on the same event by separating 
+them with a semi-colon-->
+<button class="btn btn-primary" type="button" (click)="handler_fun1();handler_fun2()">MultiClick</button>
+
+
+<!-- METHODS IN WRITTING EVENT BINDING -->
+<!-- Target Event Binding -->
 <button type="button" class="btn btn-primary" (click)="myEvent($event)">My_Click</button>
 <hr>
+<!-- We can also use the prefix on-, in event binding this is known as canonical form. -->
+<button type="button" class="btn btn-primary" on-click="myEvent($event)">My_Click</button>
+<!-- $event handling 
+    If you need access to the event payload object, you can pass $event as an 
+    argument to your handler function:
+
+    Angular recognizes this and passes in the event payload that is the native
+    event object emitted by the browser.
+--> 
+<button type="button" class="btn btn-primary" (click)="Check_$event($event)">$EventCheck</button>
+
+

@@ -1,6 +1,8 @@
 import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 import { DataService } from '../data.service';
 
+
+
 @Component({
   selector: 'app-x',
   templateUrl: './x.component.html',
@@ -13,7 +15,7 @@ export class XComponent implements OnInit {
 
 
   // as we can instantiated a class so created an instance of it
-   DataInService=new DataService;
+   DataInService=new DataService();
   
 
   

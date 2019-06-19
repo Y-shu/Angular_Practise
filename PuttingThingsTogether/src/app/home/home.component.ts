@@ -14,7 +14,11 @@ export class HomeComponent implements OnInit {
   
   display_img(){
     
-    this.img="../../assets/img.jpg"
+    this.img="../../assets/img.jpg";
+  }
+  onSave(y){
+    console.log("Save Button is Clicked!",y);//we get MouseEvent object
+    
   }
   ngOnInit() {
   }

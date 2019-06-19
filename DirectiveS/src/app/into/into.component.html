@@ -1,3 +1,70 @@
-<p>
-  into works!
-</p>
+<!-- What is a directive?
+an instruction given to an angular to perform DOM manpilations
+
+basically they are two types:
+1.structural directive
+which performs adding and removing of elements in DOM
+examples:*ngFor ,*ngIf and *ngSwitch
+
+2.Attribute directive
+which adds behavioural changes to existing elements
+example:ngClass,ngStyle-->
+
+<!-- STRUCTURED -->
+<ul>
+  <li *ngFor="let arr of arrs">{{arr}}</li>
+</ul>
+
+<!-- ngIf -->
+<div *ngIf="x;else else_condition">
+  <ul *ngFor="let odd of oddNum">
+    <li>{{odd}}</li>
+  </ul>
+</div>
+<!-- <div *ngIf="!x">
+  <ul *ngFor="let even of evenNum">
+    <li>{{even}}</li>
+  </ul>
+</div> -->
+<!-- OR -->
+<!-- angular converts all "*" stuff like below under ng-template -->
+<!-- <ng-template [ngIf]="!x">
+  <div>
+    <ul *ngFor="let even of evenNum">
+      <li>
+        {{even}}
+      </li>
+    </ul>
+  </div>
+</ng-template> -->
+
+<!-- else condition can also be written using ng-template which acts as 
+  a local reference -->
+
+  <ng-template #else_condition>
+    <div>
+      <ul *ngFor="let even of evenNum">
+        <li>
+          {{even}}
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+<!-- Angular consider "*" as ng-template?
+Answer:Angular converts all "*" into ng-template in all structural directives
+
+ng-template:which itself is not rendered but which allows us to define a 
+template...angular to use to determined that some elements to be rendered
+depends upon conditions...  -->
+
+<!-- ngSwitch -->
+<!-- even though switch case is a structural directive we don't use "*"
+rather we use angular braces?
+Answer: Dynamically we can bind some data depends upon condition as we does in
+property binding-->
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="10">Value is 10</p>
+  <p *ngSwitchCase="5">Value is 5</p>
+  <p *ngSwitchCase="6">Value is 6</p>
+  <p *ngSwitchDefault>Default Value</p>
+</div>

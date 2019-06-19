@@ -1,4 +1,5 @@
 import { Component, OnInit,Output,EventEmitter} from '@angular/core';
+import { MyTestServices } from '../mytest_services.service';
 
 @Component({
   selector: 'app-k',
@@ -10,7 +11,9 @@ export class KComponent implements OnInit {
   k_fun(k_data){
     this.k_event.emit(k_data)
   }
-  constructor() { }
+  constructor(private mytest_serve:MyTestServices) {
+    document.writeln("<h1>"+this.mytest_serve.name+"</h1>");
+   }
 
   ngOnInit() {
   }

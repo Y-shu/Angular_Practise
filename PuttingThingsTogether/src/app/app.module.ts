@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
+    // bootstrap method takes an input called appModule which address this
+    // particular AppComponent--this is the main component in angular
     AppComponent,
     HomeComponent
   ],

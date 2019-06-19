@@ -13,7 +13,7 @@ import { KchildComponent } from './k/kchild/kchild.component';
 import { LComponent } from './l/l.component';
 import { DataService } from './data.service';
 import { MainServiceService } from './main-service.service';
-
+import { MyTestServices } from './mytest_services.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { MainServiceService } from './main-service.service';
   imports: [
     BrowserModule
   ],
-  providers: [DataService,MainServiceService],
+  providers: [DataService,MainServiceService,MyTestServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

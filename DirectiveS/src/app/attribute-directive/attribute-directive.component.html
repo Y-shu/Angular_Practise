@@ -1,0 +1,18 @@
+<!-- *ngClass and *ngStyle 
+1.ngClass:it is a built in directive add or removes CSS classes depends 
+upon condition
+
+2.ngStyle:it is a built in directive which dynamically assign styles
+-->
+
+<!-- ngClass:Example -->
+<div>
+  <ul *ngFor="let eve of arr_even" >
+    <li *ngIf="y" [ngClass]="{color:eve%2==0}">{{eve}}</li>
+  </ul>
+</div>
+<div>
+  <ul *ngFor="let odd of arr_odd" >
+    <li *ngIf="y"  [ngClass]="{color:odd%2!==0}" [ngStyle]="{backgroundColor:odd%2!==0?'red':'violet'}">{{odd}}</li>
+  </ul>
+</div>

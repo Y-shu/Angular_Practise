@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MainServiceService } from './main-service.service';
+// import { MainServiceService } from './main-service.service';
 
 /*
 *What is service?
@@ -39,9 +39,9 @@ as we are creating one service at time and using it n no.of times
 this is called SINGLETON
 */ 
  
-@Injectable()
+// @Injectable()
 export class DataService{
-    constructor(private MainService:MainServiceService){}
+    constructor(){}
 arr=[{
     name:"yashu",
     message:"working on services"
@@ -55,7 +55,8 @@ getdata(){
     for(var i=0;i<this.arr.length;i++){
         var iterate=this.arr[i];
 document.writeln("data from Service :" +"Name :"+iterate.name +"<br>"+
-"Message :"+iterate.message+"<br>"+"age : "+this.MainService.getage()+"<br>")
+"Message :"+iterate.message+"<br>")
+
     }
     
     // document.writeln("<h1>Data From a Service</h1>")
