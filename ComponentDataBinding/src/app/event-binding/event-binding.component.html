@@ -33,5 +33,9 @@ them with a semi-colon-->
     event object emitted by the browser.
 --> 
 <button type="button" class="btn btn-primary" (click)="Check_$event($event)">$EventCheck</button>
+<!-- 
+ If you need something specific from the payload object,
+  you can pass it directly into the handler function with one of the event properties: -->
 
+<button (click)="handleClick($event)">Save</button>
 

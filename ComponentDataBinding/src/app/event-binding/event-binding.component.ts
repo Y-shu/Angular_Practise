@@ -19,6 +19,10 @@ export class EventBindingComponent implements OnInit {
     console.log(check_e);
     
   }
+  handleClick(e){
+    console.log(e.target);
+    
+  }
  
   
   myEvent(event){
