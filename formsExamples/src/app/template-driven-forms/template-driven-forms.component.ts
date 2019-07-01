@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./template-driven-forms.component.css']
 })
 export class TemplateDrivenFormsComponent implements OnInit {
+
   signUp:NgForm;
   submitted=false;
   user={
@@ -36,7 +37,7 @@ KeysOfMyform=[];
     if(this.submitted){
       this.keysOfuser=Object.keys(this.user)
       this.KeysOfMyform=Object.keys(values);
-      console.log(this.KeysOfMyform[values]);
+      console.log(this.KeysOfMyform);
     // this.user.user_Name=myForm_handler.value.UserName;
     }
       

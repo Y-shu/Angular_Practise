@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'forms';
+  // creating an array to bind them to a drop-box
+ topics=['angular','react','vue'];
 }

@@ -37,7 +37,7 @@ in the below example #myForm is local reference to the Form
 
 <div>
   <h2>Your Data</h2>
-  <li *ngFor="let key of keysOfuser">{{key}}<span>:</span><span>{{KeysOfMyform[values]}}</span>
+  <li *ngFor="let key of keysOfuser">{{key}}<span>:</span><span *ngFor="let key of KeysOfMyform">{{Key[value]}}</span>
 
   </li>
 </div>
