@@ -11,9 +11,8 @@ ngForm is an object it takes all values of the form in key value pairs
 in the below example #myForm is local reference to the Form
 -->
 <!-- Inorder to submit form we map our logic to ngSubmit -->
-      <form #myForm="ngForm" (ngSubmit)="OnSubmit(myForm)">
+      <form #myForm (ngSubmit)="OnSubmit(myForm)">
         <div id="user-data">
-          <!-- form-group is binding two elements here -->
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="UserName" class="form-control" ngModel>

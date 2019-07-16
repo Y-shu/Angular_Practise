@@ -1,24 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
 @Component({
-  selector: 'app-template-driven-forms',
-  templateUrl: './template-driven-forms.component.html',
-  styleUrls: ['./template-driven-forms.component.css']
+  selector: 'app-validations',
+  templateUrl: './validations.component.html',
+  styleUrls: ['./validations.component.css']
 })
-export class TemplateDrivenFormsComponent implements OnInit {
-  // purpose of submitted here is to control visibility
+export class ValidationsComponent implements OnInit {
+  
   submitted=false;
   user={
     user_Name:'',
     email:'',
     selected:''
   };
+  defaultQuestion="pet";
+  genders=['male','female'];
+  defaultGender=this.genders[1];
+  answer='';
   constructor() { 
   }
-
+  
+  
   ngOnInit() {
   }
+      Suggested(){
+        const suggestedName="yashu"
+
+      };
   obj_values;
   values;
   KeysOfMyform=[];
@@ -34,7 +42,10 @@ export class TemplateDrivenFormsComponent implements OnInit {
       // console.log(this.obj_values);
       // console.log(this.KeysOfMyform);
     }
-      
+    this.user.user_Name=myForm_handler.controls.grouping.value.UserName;
+    
+    
   }
+
 
 }

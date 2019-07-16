@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form #myForm="ngForm" (ngSubmit)="OnSubmit(myForm)">
+          <div #group="ngModelGroup" id="user-data" ngModelGroup="grouping">
+            <!-- grouping form-controllers we use ngModelGroup-->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input #myusername="ngModel" type="text" id="username" name="UserName" 
+              class="form-control" required ngModel>
+              <span class="help-block" style="color: red" *ngIf="!myusername.valid && myusername.touched">
+               Please enter required data...!
+              </span><br>
+            </div>
+            <button class="btn btn-success" (click)="Suggested()" type="button">Suggest an Username</button>
+
+            <div class="form-group">
+              <label for="email">Mail</label>
+              <!-- here required and email are validators -->
+              <input #myemail="ngModel" type="email" id="email" name="email" class="form-control" required email ngModel>
+              <span class="help-block" style="color: red" *ngIf="!myemail.valid && myemail.touched">
+                Entered Email is not valid!
+              </span>
+            </div>
+          </div>
+         <p class="help-block" style="color: red" *ngIf="!group.valid && group.touched">
+        User Data is Invalid!</p>
+          <div class="form-group">
+            <label for="secret">Secret Questions</label>
+            <select
+             #myselect="ngModel" 
+             id="secret" 
+             name="select" 
+             class="form-control" 
+             [ngModel]="defaultQuestion"
+             required>
+              <option value="pet">Your first Pet?</option>
+              <option value="teacher">Your first teacher?</option>
+            </select>
+            <br>
+                      <!--ngModel can be used in 3ways
+            1.no binding just tell angular input is an controller
+            2.one way binding --to give controller a default value
+            3.two way data binding--to instantly output whatever written in the input -->
+            <textarea 
+            name="questionAnswer"
+            [(ngModel)]="answer"
+            class="form-control"
+            rows="3">
+          </textarea>
+          <br>
+          <p>Your Reply:{{answer}}</p>
+        </div>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input 
+            type="radio"
+            name="gender"
+            [ngModel]="defaultGender"
+            [value]="gender"
+            
+            >
+            {{gender}}
+          </label>
+        </div>
+          <button class="btn btn-primary" type="submit"[disabled]="!myForm.valid">Submit</button>
+    
+          <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="submitted">
+    <h2 >Your  Submitted Data</h2>
+    <p>{{user.user_Name}}</p>
+
+    <ul>
+      <li *ngFor="let key of KeysOfMyform" style="list-style: none">{{key}}:{{values[key]}}</li>
+    </ul>
+  </div>
+  
