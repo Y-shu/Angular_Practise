@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // signUp:NgForm; 
+  @ViewChild('myForm',{static:true}) signUp:NgForm; 
+  setToDefault=true;
   constructor() { }
 
   ngOnInit() {

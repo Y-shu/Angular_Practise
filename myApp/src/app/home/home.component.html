@@ -1,28 +1,77 @@
 <div class="container">
   <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-<form class="form-signin" #myForm="ngForm" (ngSubmit)="mySubmit(myForm)">
-    <!-- <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-    <h1 class="h3 md-3 font-weight-normal">SignIn</h1>
-    <div id="user-data">
-<div class="form-group">
-    
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" name="email" class="form-control" ngModel>
-  </div>
+        <!-- 'ngForm' is a directive which is taking entire form as an object with key:value pairs
+        
+          '#myForm' is a local reference which is taking 'ngForm' module so that we can use these input
+      values any where we want...
 
-<div class="form-group">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control" ngModel>
-  </div>
-</div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me" name="checkIt" ngModel> Remember me
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+      'ngSubmit' is another directive which is taking entire form after submit and a functionality is written
+      of what should happen next to submition...
+     -->
+<form class="form-signin" #myForm="ngForm" (ngSubmit)="mySubmit(myForm)">
+        <h1 class="h3 md-3 font-weight-normal">SignIn</h1>
+        <div class="form-group">
+            <label>Name</label>
+            <input 
+            #myName="ngModel" 
+            type="text" 
+            id="nameField" 
+            name="naming" 
+            class="form-control"
+            required ngModel>
+            <span class="help-block" style="color:red" *ngIf="!myName.valid && myName.touched">
+              Name field should not be empty...!
+            </span>
+          </div>
+        <!-- ngModelGroup is another directive which binds two or more controllers  -->
+        <div #my_group="ngModelGroup" id="user-data" ngModelGroup="groupEmailPassword()">
+        <div class="form-group">
+        <!-- <label for="inputEmail" class="sr-only">Email Address</label> -->
+        <label>Email</label>
+
+        <input 
+        #myUserName="ngModel"
+         type="email" 
+         id="inputEmail" 
+         name="email" 
+         class="form-control" 
+         required ngModel>
+        <span class="help-block" style="color: red" *ngIf="!myUserName.valid && myUserName.touched">
+        Please enter a Valid data...!
+        </span>
+        </div>
+
+        <div class="form-group">
+        <!-- <label for="inputPassword" class="sr-only">Password</label> -->
+        <label>Password</label>
+
+        <input 
+        #myPassword="ngModel" 
+        type="password" 
+        id="inputPassword" 
+        name="password" 
+        class="form-control" 
+        required ngModel>
+        <span class="help-block" style="color: red" *ngIf="!myPassword.valid && myPassword.touched">
+        Please entered a valid Password..!
+        </span>
+        </div>
+        </div>
+        <div class="checkbox mb-3">
+        <label>
+        <input 
+        [ngModel]="setToDefault" 
+        type="checkbox" 
+        value="remember-me" 
+        name="checkIt" 
+        ngModel> 
+        Remember Me
+        </label>
+        </div>
+     
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </form>
 </div>
 </div>
