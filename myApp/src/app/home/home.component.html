@@ -9,6 +9,10 @@
       'ngSubmit' is another directive which is taking entire form after submit and a functionality is written
       of what should happen next to submition...
      -->
+     <!-- we can access input values in three types:
+    ngForm
+    ElementRef(basically it can be accessed only inside functionality)
+    @ViewChild(can be accessed throught the code)-->
 <form class="form-signin" #myForm="ngForm" (ngSubmit)="mySubmit(myForm)">
         <h1 class="h3 md-3 font-weight-normal">SignIn</h1>
         <div class="form-group">
@@ -24,8 +28,10 @@
               Name field should not be empty...!
             </span>
           </div>
+        <button class="btn btn-primary"(click)="Suggested()" >Suggestion</button>
+
         <!-- ngModelGroup is another directive which binds two or more controllers  -->
-        <div #my_group="ngModelGroup" id="user-data" ngModelGroup="groupEmailPassword()">
+        <div #my_group="ngModelGroup" id="user-data" ngModelGroup="groupEmailPassword">
         <div class="form-group">
         <!-- <label for="inputEmail" class="sr-only">Email Address</label> -->
         <label>Email</label>
@@ -41,7 +47,6 @@
         Please enter a Valid data...!
         </span>
         </div>
-
         <div class="form-group">
         <!-- <label for="inputPassword" class="sr-only">Password</label> -->
         <label>Password</label>
@@ -63,14 +68,17 @@
         <input 
         [ngModel]="setToDefault" 
         type="checkbox" 
-        value="remember-me" 
+        value="remember-me"
         name="checkIt" 
+      
         ngModel> 
         Remember Me
         </label>
         </div>
      
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+         
+        <button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </form>
 </div>

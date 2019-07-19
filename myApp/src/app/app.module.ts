@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// Inorder to use forms-TemplateDrivenForms
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ const my_routes:Routes = [
   ],
   imports: [
     BrowserModule,
+    // template driven forms
     FormsModule,
     RouterModule.forRoot(my_routes)
   ],

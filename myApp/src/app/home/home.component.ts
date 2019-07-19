@@ -9,6 +9,28 @@ import { NgForm } from '@angular/forms';
 export class HomeComponent implements OnInit {
   @ViewChild('myForm',{static:true}) signUp:NgForm; 
   setToDefault=true;
+  
+  // defcheckIt:true;
+
+  // --------------Setting Values using setValue method-----------------
+  Suggested(){
+    this.signUp.form.setValue({
+      groupEmailPassword:{
+        email:'kittu@gmail.com',
+        password:'kittu'
+       
+      },
+      naming:'kittu',
+      checkIt:true  
+     
+    });
+  }
+  // this will bring the form into initial stage
+  reset(){
+    this.signUp.reset();
+  
+
+  }
   constructor() { }
 
   ngOnInit() {
