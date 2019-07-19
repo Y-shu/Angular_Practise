@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -17,6 +17,12 @@ onSubmitting(){
   console.log(this.signUpForm);
   
 }
+onAddHoliday(){
+  // on every button click a controller is created that supposed to be pushed on to new array
+  const control= new FormControl(null,Validators.required);
+  // <FormArray> is for angular to recognise
+  (<FormArray>this.signUpForm.get('hobbies')).push(control);
+}
   constructor() { }
 
   ngOnInit() {
@@ -24,10 +30,21 @@ onSubmitting(){
       // controllers--have to syncronized them to our template code
       // FormController is a constructor we can pass a couple of arguments
       // first argument is a inital state,second validators(single or array of validator)
-      UserName:new FormControl(null),
-      Email:new FormControl(null),
-      Gender:new FormControl('female')
-    })
+      
+      // Grouping UserName and Email
+      UserData:new FormGroup({
+        // validators are object got imported from formslibrary
+        UserName:new FormControl(null,Validators.required),
+
+        // Providing one or more validators
+        Email:new FormControl(null,[Validators.required,Validators.email]),
+      }),
+  
+      Gender:new FormControl('female'),
+      // initally hobbies is an empty array when we click the button
+      // new controllers supposed to be added to this array
+      hobbies:new FormArray([])
+    });
   }
 
 }
