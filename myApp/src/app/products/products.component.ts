@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormGroup, FormControl, Validators } from '@angular/forms';
+import {  FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 
@@ -19,6 +19,13 @@ export class ProductsComponent implements OnInit {
   // forbidden stuff-customized validations
   forbiddenName=['appi','physco','carer','karri','kindderJoy'];
 
+  on_Add_Hobbie(){
+    const addHobbie=new FormControl(null,Validators.required);
+    (<FormArray>this.signIn.get('hobby')).push(addHobbie);
+  }
+
+
+
   constructor() { }
 
   ngOnInit() {
@@ -34,7 +41,10 @@ export class ProductsComponent implements OnInit {
         UserName:new FormControl(null,Validators.required,this.myForbidden.bind(this)),
         Email:new FormControl(null,[Validators.required,Validators.email],this.forbidden_email),
         Password: new FormControl(null,[Validators.required])
-        })
+        }),
+        // initally hobbies is an empty array when we click the button new controller supposed to be
+        // added to this array
+        hobby:new FormArray([])
     })
  
   }
