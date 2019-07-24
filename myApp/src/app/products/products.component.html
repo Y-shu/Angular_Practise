@@ -5,7 +5,7 @@
  
 <form [formGroup]='signIn' (ngSubmit)="mySubmit()">
         <h1 class="h3 md-3 font-weight-normal">SignIn</h1>
-        <!-- Grouping start -->
+<!--------------------------------------------- GROUPING--------------------------------------------------- -->
         <div class="form-group" formGroupName='UserData'>
             <label>Name</label>
             <input  
@@ -68,21 +68,23 @@
         Remember Me
         </label>
         </div>
+<!-- -------------------------------------------------ARRAY--------------------------------------------- -->
         <div formArrayName='hobby'>
           <h3>Your Hobbies</h3>
-           <button class="btn btn-primary" type="button" (click)="on_Add_Hobbie()">AddHobbies</button>
+           <button class="btn btn-primary" type="button" (click)="onAddHobbie()">AddHobbies</button>
+           <!-- controls is a pre-defined variable
+          it represents a particular controller -->
            <div class="form-group"
-           *ngFor="let hobbiesArray of signIn.get('hobby').addHobbie let i=index">
+           *ngFor="let hobbiesArray of signIn.get('hobby').controls let i=index">
            <!-- i is dynamically changing value so we need to binding i to formControlName using [] -->
             <input type="text" class="form-control" [formControlName]='i'>
 
            </div>
-
         </div>
         <br>
      
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-         
+<!------------------------------------------ RESET----------------------------------------------------------------------------------------- -->
         <button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </form>

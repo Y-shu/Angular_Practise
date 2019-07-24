@@ -16,17 +16,29 @@ export class ProductsComponent implements OnInit {
   mySubmit(){
     console.log( this.signIn);
   }
+  /*--------------------------------Suggestion(setValues)--------------------------------------- */ 
+  Suggested(){
+    const suggestedName="pinky";
+    this.signIn.setValue({
+      UserData:{
+        UserName:'pinky',
+        Email:'pinky@gmail.com',
+        Password:'pinky'
+      },
+      hobby:[]//we have to declare every input but as this field is dynamic in nature
+
+    })
+  }
+/*----------------------------------Forbidden Stuff--------------------------------------------- */
   // forbidden stuff-customized validations
   forbiddenName=['appi','physco','carer','karri','kindderJoy'];
-
-  on_Add_Hobbie(){
+  onAddHobbie(){
     const addHobbie=new FormControl(null,Validators.required);
     (<FormArray>this.signIn.get('hobby')).push(addHobbie);
+    console.log( (<FormArray>this.signIn.get('hobby')));
+    
   }
-
-
-
-  constructor() { }
+constructor() { }
 
   ngOnInit() {
     /* instantiating our constructor
@@ -34,6 +46,7 @@ export class ProductsComponent implements OnInit {
      *we have to syncronized these controllers to our template code
      *first argument is a initial stage and the second is validator(single or array of arguments)
 */
+/*----------------------------------------GROUPING---------------------------------------------- */
     this.signIn=new FormGroup({
       // Grouping UserName and Email
       UserData:new FormGroup({
@@ -48,7 +61,7 @@ export class ProductsComponent implements OnInit {
     })
  
   }
-
+/*---------------------------------------GROUPING NAME------------------------------------------- */
 // Forbidden method should return an observable or promise
 myForbidden(my_form_handler:FormControl):Observable<any>|Promise<any>{
       const my_forbidden=new Promise((resolve,reject)=>{
@@ -62,7 +75,7 @@ myForbidden(my_form_handler:FormControl):Observable<any>|Promise<any>{
 });
 return my_forbidden;
 }
-
+/*----------------------------------------GROUPING EMAIL-------------------------------------------- */
 forbidden_email(my_form_email:FormControl):Observable<any>|Promise<any>{
   const my_forbiddenEmail=new Promise((resolve,reject)=>{
 
