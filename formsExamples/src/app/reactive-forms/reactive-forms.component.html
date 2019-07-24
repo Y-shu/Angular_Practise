@@ -30,7 +30,10 @@
         <div formArrayName='hobbies'>
           <h3>Your Hobbies</h3>
            <button class="btn btn-primary" type="button" (click)="onAddHoliday()">AddHobbies</button>
+           <!-- controls is a pre-defined variable
+          it represents a controller -->
            <div class="form-group"
+           
            *ngFor="let hobbiesArray of signUpForm.get('hobbies').controls let i=index">
            <!-- i is dynamically changing value so we need to binding i to formControlName using [] -->
             <input type="text" class="form-control" [formControlName]='i'>

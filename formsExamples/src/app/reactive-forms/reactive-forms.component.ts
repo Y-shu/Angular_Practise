@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray, EmailValidator } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 import { Observable } from 'rxjs';
 
 
@@ -20,14 +20,16 @@ forbiddenUserNames=['appi','physco','carer','karri','kindderJoy'];
 
 
 onSubmitting(){
-  console.log(this.signUpForm);
-  
-}
+  console.log(this.signUpForm);  
+  }
+
 onAddHoliday(){
   // on every button click a controller is created that supposed to be pushed on to new array
   const control= new FormControl(null,Validators.required);
   // <FormArray> is for angular to recognise
   (<FormArray>this.signUpForm.get('hobbies')).push(control);
+  // console.log((<FormArray>this.signUpForm.get('hobbies'))); //FormArray
+  
 }
 
 
