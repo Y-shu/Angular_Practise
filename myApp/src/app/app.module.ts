@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule,Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductsComponent } from './products/products.component';
+import { ParamTestComponent } from './param-test/param-test.component';
 
 // Router definition
 const my_routes:Routes = [
@@ -18,6 +19,7 @@ const my_routes:Routes = [
   // we configure using RouterModule.forRoot()
 {'path':'home',component:HomeComponent},
 {'path':'products',component:ProductsComponent},
+{'path':'smiles/:id',component:ParamTestComponent},
 // last route and wildCard
 {'path':'**',component:PageNotFoundComponent},
 
@@ -30,7 +32,8 @@ const my_routes:Routes = [
     HomeComponent,
     FooterComponent,
     PageNotFoundComponent,
-    ProductsComponent
+    ProductsComponent,
+    ParamTestComponent
   ],
   imports: [
     BrowserModule,
