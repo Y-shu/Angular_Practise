@@ -13,18 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProductsComponent } from './products/products.component';
 import { ParamTestComponent } from './param-test/param-test.component';
 
-// Router definition
-const my_routes:Routes = [
-  // We have to configure the route so then only we can use then 
-  // we configure using RouterModule.forRoot()
-{'path':'home',component:HomeComponent},
-{'path':'products',component:ProductsComponent},
-{'path':'smiles/:id',component:ParamTestComponent},
-// last route and wildCard
-{'path':'**',component:PageNotFoundComponent},
 
-
-]
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +30,7 @@ const my_routes:Routes = [
     FormsModule,
     // reactive forms
     ReactiveFormsModule,
-    RouterModule.forRoot(my_routes)
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
